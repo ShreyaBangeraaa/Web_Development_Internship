@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ffffff;
+
+  font-family: Arial;
+}
+
+/* Center website */
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+.row {
+  margin: 8px -16px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+}
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content{
+    
+    position: relative;
+    text-align: left;
+    color: rgb(5, 5, 5);    
+}
+.centered{
+
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .min{
+    
+    position: relative;
+    text-align: right;
+    color: black;  
+    float: right;  
+}
+
+
+
+.container {
+  background-color: #fffbfb;
+
+}
+
+.container1 {
+  background-color: #bcb7b7;
+ 
+}
+
+.con{
+    
+    position: relative;
+    text-align: center;
+    color: rgb(5, 5, 5);    
+}
+
+.btn1 {
+  background-color: #3e61d4; 
+
+}
+.btn2{
+  background-color: #555556;
+}
+
+
+
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 900px) {
+  .column {
+    width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="con">
+    <h2>Album Example</h2>
+    <p>Something short and leading about the coolection--its<br> contents,the creator, etc.Make it short and sweet,but not too<br> short so folks don't simply skip over it entirly<br></p>
+    <button class="btn1">Main call to action</button>&nbsp<button class="btn2">Secondary action</button>
+</div>
+  </div>
+  </div>
+<div class="container1">
+
+   <div class="main">
+
+   <div class="row">
+    <div class="column">
+     <div class="content">
+      <img src="D:\Internship\grey.jpg" alt="Sky" style="width:100%">
+      <div class="centered">Thumbnail</div>
+      <p>The sky is an unobstructed view upward from the surface of the Earth. </p>
+      <section>
+      <p class="min">9 mins</p>
+      <button>view</button><button>edit</button></section>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content">
+    <img src="D:\Internship\grey.jpg" alt="Nature" style="width:100%">
+    <div class="centered">Thumbnail</div>
+      <p>Green is the color between cyan and yellow on the visible spectrum. </p>
+      <section>
+      <p class="min">9 mins</p>
+      <button>view</button><button>edit</button></section>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content">
+    <img src="D:\Internship\grey.jpg" alt="Rainbow" style="width:100%">
+    <div class="centered">Thumbnail</div>
+      <p>A rainbow is a multicolored arc made by light striking water droplets. </p>
+      <section>
+      <p class="min">9 mins</p>
+      <button>view</button><button>edit</button>
+      </section>
+    </div>
+  </div>
+  
+<!-- END GRID -->
+</div>
+
+<!-- END MAIN -->
+</div>
+<div class="main">
+
+    <hr>
+    
+    
+    <!-- Grid -->
+    <div class="row">
+      <div class="column">
+        <div class="content">
+          <img src="D:\Internship\grey.jpg" alt="Sky" style="width:100%">
+          <div class="centered">Thumbnail</div>
+          <p>The sky is an unobstructed view upward from the surface of the Earth.</p>
+          <section>
+          <p class="min">9 mins</p>
+          <button>view</button><button>edit</button></section>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+        <img src="D:\Internship\grey.jpg" alt="Nature" style="width:100%">
+        <div class="centered">Thumbnail</div>
+          <p>Green is the color between cyan and yellow on the visible spectrum. </p>
+          <section>
+          <p class="min">9 mins</p>
+          <button>view</button><button>edit</button></section>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+        <img src="D:\Internship\grey.jpg" alt="Rainbow" style="width:100%">
+        <div class="centered">Thumbnail</div>
+          <p>A rainbow is a multicolored arc made by light striking water droplets. </p>
+          <section>
+          <p class="min">9 mins</p>
+          <button>view</button><button>edit</button></section>
+        </div>
+      </div>
+      
+    <!-- END GRID -->
+    </div>
+    
+    <!-- END MAIN -->
+    </div>
+
+    <div class="main">
+
+        <hr>
+        
+        
+      
+        <div class="row">
+          <div class="column">
+            <div class="content">
+              <img src="D:\Internship\grey.jpg" alt="Sky" style="width:100%">
+              <div class="centered">Thumbnail</div>
+              <p>The sky is an unobstructed view upward from the surface of the Earth. </p>
+              <section>
+              <p class="min">9 mins</p>
+              <button>view</button><button>edit</button></section>
+            </div>
+          </div>
+          <div class="column">
+            <div class="content">
+            <img src="D:\Internship\grey.jpg"alt="Nature" style="width:100%">
+            <div class="centered">Thumbnail</div>
+              <p>Green is the color between cyan and yellow on the visible spectrum. </p>
+              <section>
+              <p class="min">9 mins</p>
+              <button>view</button><button>edit</button></section>
+            </div>
+          </div>
+          <div class="column">
+            <div class="content">
+            <img src="D:\Internship\grey.jpg" alt="Rainbow" style="width:100%">
+            <div class="centered">Thumbnail</div>
+              <p>A rainbow is a multicolored arc made by light striking water droplets. </p>
+              <section>
+              <p class="min">9 mins</ps>
+              <button>view</button><button>edit</button></section>
+            </div>
+          </div>
+          
+        <!-- END GRID -->
+        </div>
+        
+        <!-- END MAIN -->
+        </div>
+
+      </div>
+
+      </div>
+</body>
+</body>
+</html>
