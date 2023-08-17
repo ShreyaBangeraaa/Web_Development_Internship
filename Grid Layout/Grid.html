@@ -8,8 +8,8 @@
 }
 
 body {
-  background-color: #ffffff;
-
+  background-color: #f1f1f1;
+  padding: 20px;
   font-family: Arial;
 }
 
@@ -37,7 +37,7 @@ h1 {
 /* Create four equal columns that floats next to each other */
 .column {
   float: left;
-  width: 33.33%;
+  width: 25%;
 }
 
 /* Clear floats after rows */ 
@@ -48,57 +48,10 @@ h1 {
 }
 
 /* Content */
-.content{
-    
-    position: relative;
-    text-align: left;
-    color: rgb(5, 5, 5);    
+.content {
+  background-color: white;
+  padding: 10px;
 }
-.centered{
-
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .min{
-    
-    position: relative;
-    text-align: right;
-    color: black;  
-    float: right;  
-}
-
-
-
-.container {
-  background-color: #fffbfb;
-
-}
-
-.container1 {
-  background-color: #bcb7b7;
- 
-}
-
-.con{
-    
-    position: relative;
-    text-align: center;
-    color: rgb(5, 5, 5);    
-}
-
-.btn1 {
-  background-color: #3e61d4; 
-
-}
-.btn2{
-  background-color: #555556;
-}
-
-
-
 
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 900px) {
@@ -114,7 +67,6 @@ h1 {
   }
 }
 
-
 </style>
 </head>
 <body>
@@ -128,23 +80,26 @@ h1 {
   </div>
   </div>
 <div class="container1">
-
    <div class="main">
 
    <div class="row">
     <div class="column">
+      <div class="container">
      <div class="content">
-      <img src="D:\Internship\grey.jpg" alt="Sky" style="width:100%">
+      <img src="D:\Internship\Grid Layout\grey.jpg" alt="Sky" style="width:100%">
       <div class="centered">Thumbnail</div>
       <p>The sky is an unobstructed view upward from the surface of the Earth. </p>
       <section>
       <p class="min">9 mins</p>
-      <button>view</button><button>edit</button></section>
+      <button class="view">view</button><button>edit</button></section>
     </div>
   </div>
+  </div>
   <div class="column">
+    <div class="container">
     <div class="content">
-    <img src="D:\Internship\grey.jpg" alt="Nature" style="width:100%">
+      
+    <img src="D:\Internship\Grid Layout\grey.jpg" alt="Nature" style="width:100%">
     <div class="centered">Thumbnail</div>
       <p>Green is the color between cyan and yellow on the visible spectrum. </p>
       <section>
@@ -152,9 +107,11 @@ h1 {
       <button>view</button><button>edit</button></section>
     </div>
   </div>
+  </div>
   <div class="column">
+    <div class="container">
     <div class="content">
-    <img src="D:\Internship\grey.jpg" alt="Rainbow" style="width:100%">
+    <img src="D:\Internship\Grid Layout\grey.jpg" alt="Rainbow" style="width:100%">
     <div class="centered">Thumbnail</div>
       <p>A rainbow is a multicolored arc made by light striking water droplets. </p>
       <section>
@@ -162,6 +119,7 @@ h1 {
       <button>view</button><button>edit</button>
       </section>
     </div>
+  </div>
   </div>
   
 <!-- END GRID -->
@@ -171,14 +129,15 @@ h1 {
 </div>
 <div class="main">
 
-    <hr>
+ 
     
     
     <!-- Grid -->
     <div class="row">
       <div class="column">
+        <div class="container">
         <div class="content">
-          <img src="D:\Internship\grey.jpg" alt="Sky" style="width:100%">
+          <img src="D:\Internship\Grid Layout\grey.jpg" alt="Sky" style="width:100%">
           <div class="centered">Thumbnail</div>
           <p>The sky is an unobstructed view upward from the surface of the Earth.</p>
           <section>
@@ -186,9 +145,11 @@ h1 {
           <button>view</button><button>edit</button></section>
         </div>
       </div>
+      </div>
       <div class="column">
+        <div class="container">
         <div class="content">
-        <img src="D:\Internship\grey.jpg" alt="Nature" style="width:100%">
+        <img src="D:\Internship\Grid Layout\grey.jpg" alt="Nature" style="width:100%">
         <div class="centered">Thumbnail</div>
           <p>Green is the color between cyan and yellow on the visible spectrum. </p>
           <section>
@@ -196,15 +157,18 @@ h1 {
           <button>view</button><button>edit</button></section>
         </div>
       </div>
+      </div>
       <div class="column">
+        <div class="container">
         <div class="content">
-        <img src="D:\Internship\grey.jpg" alt="Rainbow" style="width:100%">
+        <img src="D:\Internship\Grid Layout\grey.jpg" alt="Rainbow" style="width:100%">
         <div class="centered">Thumbnail</div>
           <p>A rainbow is a multicolored arc made by light striking water droplets. </p>
           <section>
           <p class="min">9 mins</p>
           <button>view</button><button>edit</button></section>
         </div>
+      </div>
       </div>
       
     <!-- END GRID -->
@@ -215,14 +179,12 @@ h1 {
 
     <div class="main">
 
-        <hr>
         
-        
-      
         <div class="row">
           <div class="column">
+            <div class="container">
             <div class="content">
-              <img src="D:\Internship\grey.jpg" alt="Sky" style="width:100%">
+              <img src="D:\Internship\Grid Layout\grey.jpg" alt="Sky" style="width:100%">
               <div class="centered">Thumbnail</div>
               <p>The sky is an unobstructed view upward from the surface of the Earth. </p>
               <section>
@@ -230,9 +192,12 @@ h1 {
               <button>view</button><button>edit</button></section>
             </div>
           </div>
+          </div>
           <div class="column">
+            <div class="container">
             <div class="content">
-            <img src="D:\Internship\grey.jpg"alt="Nature" style="width:100%">
+              
+            <img src="D:\Internship\Grid Layout\grey.jpg"alt="Nature" style="width:100%">
             <div class="centered">Thumbnail</div>
               <p>Green is the color between cyan and yellow on the visible spectrum. </p>
               <section>
@@ -240,15 +205,18 @@ h1 {
               <button>view</button><button>edit</button></section>
             </div>
           </div>
+          </div>
           <div class="column">
+            <div class="container">
             <div class="content">
-            <img src="D:\Internship\grey.jpg" alt="Rainbow" style="width:100%">
+            <img src="D:\Internship\Grid Layout\grey.jpg" alt="Rainbow" style="width:100%">
             <div class="centered">Thumbnail</div>
               <p>A rainbow is a multicolored arc made by light striking water droplets. </p>
               <section>
-              <p class="min">9 mins</ps>
+              <p class="min">9 mins</p>
               <button>view</button><button>edit</button></section>
             </div>
+          </div>
           </div>
           
         <!-- END GRID -->
@@ -259,7 +227,7 @@ h1 {
 
       </div>
 
-      </div>
+      
 </body>
 </body>
 </html>
