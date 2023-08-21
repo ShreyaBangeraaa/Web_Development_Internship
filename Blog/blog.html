@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Blog</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="description" content="">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/4.4/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/4.4/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+    <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon.ico">
+    <meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#563d7c">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    background-image: var(--bs-navbar-toggler-icon-bg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+.navbar-toggler:hover {
+    text-decoration: none;
+}
+
+    </style>
+  </head>
+  <body>
+
+    <body>
+      
+        <div class="container">
+            <header class="blog-header py-3">
+              <div class="row flex-nowrap justify-content-between align-items-center">
+                <div class="col-4 pt-1">
+                  <a class="link-secondary text-muted" href="#">Subscribe</a>
+                </div>
+                <div class="col-4 text-center">
+                  <h2>Large</h2>
+                </div>
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                  <a class="link-secondary text-muted" href="#" aria-label="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="M21 21l-5.2-5.2"></path></svg>
+                  </a>
+                  <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
+                </div>
+              </div>
+            </header>
+        <!-- <div class="nav-scroller py-1 mb-2 position-sticky" style="top:2rem;">
+            <nav class="nav d-flex justify-content-between bg-light navbar navbar-expand-lg bg-body-tertiar ">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="#"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+
+              <a class="p-2 text-muted" href="#">World</a>
+              <a class="p-2 text-muted" href="#">U.S.</a>
+              <a class="p-2 text-muted" href="#">Technology</a>
+              <a class="p-2 text-muted" href="#">Design</a>
+              <a class="p-2 text-muted" href="#">Culture</a>
+              <a class="p-2 text-muted" href="#">Business</a>
+              <a class="p-2 text-muted" href="#">Politics</a>
+              <a class="p-2 text-muted" href="#">Opinion</a>
+              <a class="p-2 text-muted" href="#">Science</a>
+              <a class="p-2 text-muted" href="#">Health</a>
+              <a class="p-2 text-muted" href="#">Style</a>
+              <a class="p-2 text-muted" href="#">Travel</a>
+              </div>
+            </nav>
+          </div>
+        </div> -->
+
+        <div class="bd-example m-0 border-0">
+          <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Navbar</a>
+              <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="navbar-collapse collapse" id="navbarSupportedContent" style="">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">World</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">U.S</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Technology</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Design</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Culture</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Business</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Politics</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Opinion</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          </div>
+
+
+
+
+
+
+    <div class="container">
+      <div class="col-lg-12">
+        <div class="p-4 p-md-5 mb-4 text-white  bg-dark">
+          <div class="col-md-6 px-2">
+            <h1 class="display-6 " style="font-style: italic;">Title of a longer featured blog post</h1>
+            <p class="">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
+            <p class="text-white ">Continue reading...</p>
+          </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                      <strong class="d-inline-block mb-2 text-primary">World</strong>
+                      <h3 class="mb-0">Featured post</h3>
+                      <div class="mb-1 text-muted">Nov 12</div>
+                      <p class="card-text mb-auto">This is a wider card with supporting text below.</p>
+                      <a href="#" class="text-primary">Continue reading</a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                      <svg class="bd-placeholder-img" width="200" height="250"  role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".4em">Thumbnail</text></svg>            
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                        <div class="col p-4 d-flex flex-column position-static">
+                          <strong class="d-inline-block mb-2 text-success">Design</strong>
+                          <h3 class="mb-1">Post title</h3>
+                          <div class="mb-3 text-muted">Nov 11</div>
+                          <p class="card-text mb-auto">This is a wider card with supporting text below.</p>
+                          <a href="#" class="text-primary">Continue reading</a>
+                        </div>
+                        <div class="col-auto d-none d-lg-block">
+                          <svg class="bd-placeholder-img" width="200" height="250"  role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                        </div>
+                      </div>
+                    </div>
+        </div>
+
+        <div class="row g-5">
+          <div class="col-md-8">
+            <h3 class="pb-2 mb-4 border-bottom" style="font-style: italic;">From the Firehose</h3>
+       
+        <article>
+              <h2>Sample blog post</h2>
+               <p class="">January 1, 2021 by <a href="#">Mark</a></p>  
+               
+               <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images and  code are all supported.</p>
+               <hr>
+               <p>A blog is an online journal or informational website <a href="#">blog-post</a> run by an individual, group, or corporation that offers regularly updated content (blog post) about a topic. It presents information in reverse chronological order and it's written in an informal or conversational style.</p>
+               <p>A blog is an online journal or informational website run by an <b>individual, group, or corporation</b> that offers regularly updated content (blog post) about a topic. </p>
+               <p>A blog is an online journal or informational website run by an individual, group, or corporation that offers regularly updated content (blog post) about a topic. </p>
+               
+              <h2>Heading</h2>
+              <p>A HTML heading or HTML h tag can be defined as a title or a subtitle which you want to display on the webpage. When you place the text within the heading tags h1 h2 it is displayed on the browser in the bold format and size of the text depends on the number of heading.</p>
+              <h3>Sub-heading</h3>
+              <p>A HTML heading or HTML h tag can be defined as a title or a subtitle which you want to display on the webpage.</p>
+              <p><b>Example code block</b></p>
+              <p>A HTML heading or HTML h tag can be defined as a title or a subtitle which you want to display on the webpage. When you place the text within the heading tags h1 h2 it is displayed on the browser in the bold format and size of the text depends on the number of heading.</p>
+
+              <h3>Sub-heading</h3>
+              <p>A subheading is a mini-headline or text that is found under the main headline to give further insight or support for the headline.</p>
+              <ul>
+                <li> Using the "H" tags</li>
+                <li> Using the "P" tag with CSS</li>
+                <li> Using the "Div" tag with CSS</li>
+              </ul>
+
+
+              <p>Ability to create headings and subheadings to organize and structure text.</p>
+              <ol>
+                <li>Using the "H" tags</li>
+                <li>Using the "P" tag with CSS</li>
+                <li> Using the "Div" tag with CSS</li>
+              </ol>
+
+              <p>A HTML heading or HTML h tag can be defined as a title or a subtitle which you want to display on the webpage.</p>
+
+        </article>
+
+        <article class="blog-post">
+          <h2 class="blog-post-title">Another blog post</h2>
+          <p class="blog-post-meta">December 23, 2020 by <a href="#">Jacob</a></p>
+          <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images and  code are all supported.</p>
+          <p>A blog is an online journal or informational website <a href="#">blog-post</a> run by an individual, group, or corporation that offers regularly updated content (blog post) about a topic. It presents information in reverse chronological order and it's written in an informal or conversational style.</p>
+          <p>A blog is an online journal or informational website run by an <b>individual, group, or corporation</b> that offers regularly updated content (blog post) about a topic. </p>
+          <p>A blog is an online journal or informational website run by an individual, group, or corporation that offers regularly updated content (blog post) about a topic. </p>
+         </article> 
+         
+         <article class="blog-post">
+          <h2 class="blog-post-title">New feature</h2>
+          <p class="blog-post-meta">December 14, 2020 by <a href="#">Chris</a></p>
+
+        <p>A subheading is a mini-headline or text that is found under the main headline to give further insight or support for the headline.This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images and  code are all supported.</p>
+        <ul>
+          <li> Using the "H" tags</li>
+          <li> Using the "P" tag with CSS</li>
+          <li> Using the "Div" tag with CSS</li>
+        </ul>
+        <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images and  code are all supported.</p>
+        <p>A blog is an online journal or informational website run by an individual, group, or corporation that offers regularly updated content (blog post) about a topic. It presents information in reverse chronological order and it's written in an informal or conversational style.</p>
+         </article>
+          
+         <nav class="blog-pagination" aria-label="Pagination">
+          <a class="btn btn-outline-primary rounded-pill" href="#">Older</a>
+          <a class="btn btn-outline-secondary rounded-pill disabled" aria-disabled="true">Newer</a>
+        </nav>
+        </div>
+
+        <div class="col-md-4">
+          <!-- <div class="position-sticky" style="top: 2rem;"> -->
+            <div class="p-4 mb-3 bg-light rounded">
+              <h4 style="font-style: italic;">About</h4>
+              <p class="mb-0">This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images and  code are all supported.</p>
+            </div>
+
+            <div class="p-4">
+              <h4 class="fst-italic">Archives</h4>
+             <ul>
+                <li><a href="#">March 2021</a></li>
+                <li><a href="#">February 2021</a></li>
+                <li><a href="#">January 2021</a></li>
+                <li><a href="#">December 2020</a></li>
+                <li><a href="#">November 2020</a></li>
+                <li><a href="#">October 2020</a></li>
+                <li><a href="#">September 2020</a></li>
+                <li><a href="#">August 2020</a></li>
+                <li><a href="#">July 2020</a></li>
+                <li><a href="#">June 2020</a></li>
+                <li><a href="#">May 2020</a></li>
+                <li><a href="#">April 2020</a></li>
+              </ul>
+            </div>
+            <div class="p-4">
+              <h4 style="font-style: italic;">Elsewhere</h4>
+              <ul>
+                <li><a href="#">GitHub</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Facebook</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+   
+
+      <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
+        <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+        <p class="mb-0">
+          <a href="#">Back to top</a>
+        </p>
+      </footer>
+    
+        </body>
+
+
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
+  </body>
+</html>
+
+
+
+
+
+
+
+
+<div class="bd-example m-0 border-0">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse" id="navbarSupportedContent" style="">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+          
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  </div>
