@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dynamic Table</title>
+  <style>
+    /* Add CSS styles for buttons */
+    button {
+      background-color: orange;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      border-radius: 10px; /* Rounded corners */
+      cursor: pointer;
+    }
+
+    /* Add CSS styles for table cells */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: center;
+    }
+
+    /* Align buttons to the left */
+    .button-container {
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Result Table</h2>
+  <form id="studentForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" required>
+    <label for="regNumber">Register Number:</label>
+    <input type="text" id="regNumber" required>
+    <label for="grade">Grade:</label>
+    <input type="text" id="grade" required>
+    
+    <br>
+    <div class="button-container">
+    <button type="button" onclick="addStudent()">Submit</button>
+    <button type="button" onclick="clearEntireTable()">Reset</button>
+    <!-- <button onclick="showstudentTable()">Table</button -->
+    
+      
+    </div>
+  </form>
+  <table id="studentTable" border="1">
+    <tr>
+      <th>Name</th>
+      <th>Register Number</th>
+      <th>Grade</th>
+    </tr>
+  </table>
+
+  <script>
+    const studentTable = document.getElementById('studentTable');
+    const studentForm = document.getElementById('studentForm');
+
+    function addStudent() {
+      const name = document.getElementById('name').value;
+      const regNumber = document.getElementById('regNumber').value;
+      const grade = document.getElementById('grade').value;
+
+      const newRow = studentTable.insertRow(-1);
+      const cell1 = newRow.insertCell(0);
+      const cell2 = newRow.insertCell(1);
+      const cell3 = newRow.insertCell(2);
+      cell1.innerHTML = name;
+      cell2.innerHTML = regNumber;
+      cell3.innerHTML = grade;
+
+      sortTable();
+    }
+
+    function sortTable() {
+      const rows = Array.from(studentTable.rows).slice(1); // Exclude header row
+      rows.sort((a, b) => a.cells[0].textContent.localeCompare(b.cells[0].textContent));
+      for (const row of rows) {
+      studentTable.appendChild(row);
+      }
+    }
+
+    // function clearTable() {
+    //   while (studentTable.rows.length > 1) {
+    //     studentTable.deleteRow(1);
+    //   }
+    // } //clears all data
+
+   
+    function clearTable(r) {
+       document.getElementById("studentTable").deleteRow(1);
+    }
+    
+    function clearEntireTable() {
+      document.getElementById('name').value = '';
+      document.getElementById('regNumber').value = '';
+      document.getElementById('grade').value = '';
+    }
+
+  </script>
+
+  <div class="button-container">
+    <button type="button" id="btn" onclick="studentTable.remove(),btn.remove()"> Clear Table</button> 
+    <button type="button" onclick="clearTable()">Clear</button>
+</div>
+
+</body>
+</html>
