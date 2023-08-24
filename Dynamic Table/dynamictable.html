@@ -53,12 +53,18 @@
   <form id="studentForm">
     <div class="row">
       <div class="col-lg-12">   
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fa fa-search"></i></span>
+          </div>
+          <input type="text" id="search" class="form-control" placeholder="Search by name, register number, or grade" oninput="searchTable(this)">
+        </div>
         <label for="name"><i class="fa fa-user"></i> Name: </label><br>
         <input type="text" id="name" required placeholder="Enter name" oninput="validateName(this)"><br>
         <div class="warning" id="nameWarning"></div><br>
          
         <div class="mb-3">
-          <label for="text"><i class=""></i> Register Number:</label><br>
+          <label for="regNumber"><i class=""></i> Register Number:</label><br>
           <input type="text" id="regNumber" required placeholder="Enter regNumber" oninput="validateRegNumber(this)"><br>
           <div class="warning" id="regNumberWarning"></div>
         </div>
@@ -82,10 +88,10 @@
   
   <table id="studentTable" border="1">
     <tr>
-      <th>SI No</th>
-      <th>Name</th>
-      <th>Register Number</th>
-      <th>Grade</th>
+      <th onclick="sortTable(0)">SI No</th>
+      <th onclick="sortTable(1)">Name</th>
+      <th onclick="sortTable(2)">Register Number</th>
+      <th onclick="sortTable(3)">Grade</th>
       <th>Action</th>
     </tr>
   </table>
@@ -143,6 +149,30 @@
   }
 
 
+  function createTable() {
+  const table = document.createElement('table');
+  table.id = 'studentTable';
+  table.border = '1';
+
+  const headerRow = document.createElement('tr');
+  const headers = ['SI No', 'Name', 'Register Number', 'Grade', 'Actions'];
+
+  for (const headerText of headers) {
+    const headerCell = document.createElement('th');
+    headerCell.textContent = headerText;
+    headerRow.appendChild(headerCell);
+  }
+
+  table.appendChild(headerRow);
+
+  document.body.appendChild(table);
+}
+
+
+
+  
+
+
   function addStudent() {
   const name = document.getElementById('name').value;
   const regNumber = document.getElementById('regNumber').value;
@@ -179,6 +209,13 @@
   nameWarning.textContent = '';
   regNumberWarning.textContent = '';
   gradeWarning.textContent = '';
+
+
+   // Recreate the table with headers
+   if (!document.getElementById('studentTable')) {
+    createTable();
+  }
+
 
   const newRow = studentTable.insertRow(-1);
   const cell1 = newRow.insertCell(0);
@@ -294,7 +331,6 @@ function editStudent(name, regNumber, grade) {
   cancelButton.textContent = 'Cancel';
   cancelButton.classList.add('btn', 'btn-secondary', 'btn-sm');
   cancelButton.onclick = function() {
-
   cancelEdit(rowToEdit, originalData);
 
     restoreActionCell(row, originalData.name, originalData.regNumber, originalData.grade);
@@ -372,13 +408,31 @@ function findRow(name, regNumber, grade) {
   }
 }
 
-  function sortTable() {
+//   function sortTable() {
+//   const rows = Array.from(studentTable.rows).slice(1); // Exclude header row
+//   rows.sort((a, b) => a.cells[1].textContent.localeCompare(b.cells[1].textContent));
+//   for (const row of rows) {
+//   studentTable.appendChild(row);
+//   }
+// }
+function sortTable(column) {
   const rows = Array.from(studentTable.rows).slice(1); // Exclude header row
-  rows.sort((a, b) => a.cells[1].textContent.localeCompare(b.cells[1].textContent));
+
+  rows.sort((a, b) => {
+    const aValue = a.cells[column].textContent.toLowerCase();
+    const bValue = b.cells[column].textContent.toLowerCase();
+    return aValue.localeCompare(bValue);
+  });
+
+  while (studentTable.rows.length > 1) {
+    studentTable.deleteRow(1);
+  }
+
   for (const row of rows) {
-  studentTable.appendChild(row);
+    studentTable.appendChild(row);
   }
 }
+
 
 function clearEntireTable() {
   clearTable();
@@ -405,6 +459,25 @@ function clearInputs() {
     document.getElementById('grade').classList.remove('is-invalid');
   }
 
+  function searchTable(inputElement) {
+  const searchQuery = inputElement.value.toLowerCase();
+  const rows = Array.from(studentTable.rows).slice(1); // Exclude header row
+
+  for (const row of rows) {
+    const name = row.cells[1].textContent.toLowerCase();
+    const regNumber = row.cells[2].textContent.toLowerCase();
+    const grade = row.cells[3].textContent.toLowerCase();
+
+    if (name.includes(searchQuery) || regNumber.includes(searchQuery) || grade.includes(searchQuery)) {
+      row.style.display = ''; // Display matching rows
+    } else {
+      row.style.display = 'none'; // Hide non-matching rows
+    }
+  }
+}
+
+
+
 </script>
   <div class="button-container">
     <button type="button" id="btn" onclick="studentTable.remove(),btn.remove(),btn1.remove()"> Clear Table</button> 
@@ -415,4 +488,19 @@ function clearInputs() {
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
