@@ -1,12 +1,9 @@
-
 <!DOCTYPE html>
 <html>
 <head>
   <title>Dynamic Table</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
-   
-    
     button {
       background-color: orange;
       border: none;
@@ -28,11 +25,16 @@
     }
 
     th, td {
+      border: 1px solid #ddd;
       padding: 15px;
       text-align: center;
     }
 
-    /* Align buttons to the left */
+     th {
+    background-color: #f2f2f2;
+  }
+
+    /* Align buttons to the center */
     .button-container {
       text-align: center;
       margin-top: 10px;
@@ -44,21 +46,26 @@
       margin-top: -3px;
       text-align: left;
     }
-  </style>
+    .sortable {
+     cursor: pointer;
+     }
+     #studentTable{
+  display: none;
+}
+
+#searchContainer {
+      display: none;
+}
+
+</style>
 </head>
 <body>
+<!-- input fields -->
   <div class="container bg-light py-5">
   <h2 style="text-align: center;">Result Table</h2><br>
-
-  <form id="studentForm">
-    <div class="row">
+   <form id="studentForm">
+     <div class="row">
       <div class="col-lg-12">   
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text"><i class="fa fa-search"></i></span>
-          </div>
-          <input type="text" id="search" class="form-control" placeholder="Search by name, register number, or grade" oninput="searchTable(this)">
-        </div>
         <label for="name"><i class="fa fa-user"></i> Name: </label><br>
         <input type="text" id="name" required placeholder="Enter name" oninput="validateName(this)"><br>
         <div class="warning" id="nameWarning"></div><br>
@@ -73,33 +80,42 @@
           <input type="text" id="grade" required placeholder="Enter grade" oninput="validateGrade(this)"><br>
           <div class="warning" id="gradeWarning"></div>
         </div>
-    
-        </div>
+      </div>
      </div>
    
-    
     <div class="button-container">
       <button type="button" onclick="addStudent()">Submit</button>
       <button type="button" onclick="clearInputs()">Reset</button>
     </div>
     <br>
+
+    <div class="input-group mb-3">
+      <div id="searchContainer" class="input-group-prepend">
+        <span class="input-group-text"><i class="fa fa-search"></i></span>
+      </div>
+      <input type="text" id="search" class="form-control" placeholder="Search by name, register number, or grade" oninput="searchTable(this)">
+    </div>
     <div class="warning" id="warningMessage"></div>
   </form>
   
   <table id="studentTable" border="1">
     <tr>
-      <th onclick="sortTable(0)">SI No</th>
-      <th onclick="sortTable(1)">Name</th>
-      <th onclick="sortTable(2)">Register Number</th>
-      <th onclick="sortTable(3)">Grade</th>
+      <th style="cursor: pointer;" onclick="sortTable(0)">SI No</th>
+      <th style="cursor: pointer;" onclick="sortTable(1)">Name</th>
+      <th style="cursor: pointer;" onclick="sortTable(2)">Register Number</th>
+      <th style="cursor: pointer;" onclick="sortTable(3)">Grade</th>
       <th>Action</th>
     </tr>
   </table>
 
+  <div id="noResultMessage" style="display: none; color: red; text-align: center; font-size: large;">No result found</div>
+
   <script>
+
     
     const studentTable = document.getElementById('studentTable');
     const studentForm = document.getElementById('studentForm');
+    const searchContainer = document.getElementById('searchContainer');
 
     function validateName(inputElement) {
     const name = inputElement.value;
@@ -154,6 +170,7 @@
   table.id = 'studentTable';
   table.border = '1';
 
+
   const headerRow = document.createElement('tr');
   const headers = ['SI No', 'Name', 'Register Number', 'Grade', 'Actions'];
 
@@ -167,10 +184,6 @@
 
   document.body.appendChild(table);
 }
-
-
-
-  
 
 
   function addStudent() {
@@ -214,20 +227,24 @@
    // Recreate the table with headers
    if (!document.getElementById('studentTable')) {
     createTable();
-  }
 
-
+   }
+  
   const newRow = studentTable.insertRow(-1);
   const cell1 = newRow.insertCell(0);
   const cell2 = newRow.insertCell(1);
   const cell3 = newRow.insertCell(2);
   const cell4 = newRow.insertCell(3);
   const cell5 = newRow.insertCell(4); // New action cell
+ 
 
   cell1.innerHTML = studentTable.rows.length - 1;
   cell2.innerHTML = name;
   cell3.innerHTML = regNumber;
   cell4.innerHTML = grade;
+  searchContainer.style.display = 'block';
+
+
 
   const editButton = document.createElement('button');
   editButton.textContent = 'Edit';
@@ -243,12 +260,16 @@
   deleteButton.onclick = function() {
     deleteStudent(name, regNumber, grade);
   };
-
+ 
   cell5.appendChild(editButton);
   cell5.appendChild(deleteButton);
+      
+  
 
   sortTable();
   clearInputs();
+  showTable();
+ 
 }
 
 
@@ -309,7 +330,26 @@ function editStudent(name, regNumber, grade) {
   const updateButton = document.createElement('button');
   updateButton.textContent = 'Update';
   updateButton.classList.add('btn', 'btn-success', 'btn-sm', 'mr-1');
+
+  let valuesUpdated = false;
+
+
+  nameInput.addEventListener('input', function () {
+    valuesUpdated = true;
+  });
+
+  // Event listener for regNumberInput
+  regNumberInput.addEventListener('input', function () {
+    valuesUpdated = true;
+  });
+
+  // Event listener for gradeInput
+  gradeInput.addEventListener('input', function () {
+    valuesUpdated = true;
+  });
+
   updateButton.onclick = function() {
+    if (valuesUpdated) {
     const confirmation = confirm('Are you sure you want to update this student?');
     if (confirmation) {
       const updatedName = nameInput.value;
@@ -325,17 +365,16 @@ function editStudent(name, regNumber, grade) {
 
     }
     sortTable();
+  }
   };
 
   const cancelButton = document.createElement('button');
   cancelButton.textContent = 'Cancel';
   cancelButton.classList.add('btn', 'btn-secondary', 'btn-sm');
   cancelButton.onclick = function() {
+  valuesUpdated = false;
   cancelEdit(rowToEdit, originalData);
-
-    restoreActionCell(row, originalData.name, originalData.regNumber, originalData.grade);
-
-
+  restoreActionCell(row, originalData.name, originalData.regNumber, originalData.grade);
   };
 
   // Clear the existing action buttons and add the update and cancel buttons
@@ -405,6 +444,7 @@ function findRow(name, regNumber, grade) {
       }
     }
     sortTable();
+    updateSerialNumbers();
   }
 }
 
@@ -415,6 +455,16 @@ function findRow(name, regNumber, grade) {
 //   studentTable.appendChild(row);
 //   }
 // }
+function updateSerialNumbers() {
+        const rows = dataTable.querySelectorAll("tbody tr");
+        rows.forEach((row, index) => {
+            const serialNumberCell = row.querySelector(".serial-number");
+            if (serialNumberCell) {
+            serialNumberCell.textContent = index + 1;
+            }
+        });
+        }
+
 function sortTable(column) {
   const rows = Array.from(studentTable.rows).slice(1); // Exclude header row
 
@@ -460,22 +510,42 @@ function clearInputs() {
   }
 
   function searchTable(inputElement) {
-  const searchQuery = inputElement.value.toLowerCase();
-  const rows = Array.from(studentTable.rows).slice(1); // Exclude header row
+  const searchKeyword = inputElement.value.toLowerCase();
+  const rows = studentTable.getElementsByTagName('tr');
 
-  for (const row of rows) {
-    const name = row.cells[1].textContent.toLowerCase();
-    const regNumber = row.cells[2].textContent.toLowerCase();
-    const grade = row.cells[3].textContent.toLowerCase();
+  let foundMatch = false;
 
-    if (name.includes(searchQuery) || regNumber.includes(searchQuery) || grade.includes(searchQuery)) {
-      row.style.display = ''; // Display matching rows
-    } else {
-      row.style.display = 'none'; // Hide non-matching rows
+  for (let i = 1; i < rows.length; i++) {
+    const row = rows[i];
+    let foundInRow = false;
+
+    for (let j = 1; j < row.cells.length - 1; j++) {
+      const cellValue = row.cells[j].textContent.toLowerCase();
+      if (cellValue.includes(searchKeyword)) {
+        foundInRow = true;
+        break;
+      }
     }
+
+    if (foundInRow) {
+      row.style.display = '';
+      foundMatch = true;
+    } else {
+      row.style.display = 'none';
+    }
+  }
+
+  const noResultMessage = document.getElementById('noResultMessage');
+  if (foundMatch) {
+    noResultMessage.style.display = 'none';
+  } else {
+    noResultMessage.style.display = 'block';
   }
 }
 
+function showTable() {
+  document.getElementById('studentTable').style.display = 'table';
+}
 
 
 </script>
@@ -488,19 +558,4 @@ function clearInputs() {
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
