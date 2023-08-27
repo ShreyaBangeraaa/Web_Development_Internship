@@ -56,7 +56,21 @@
 #searchContainer {
       display: none;
 }
+.arrow::after {
+  content: "\25B2"; /* Upward arrow */
+}
 
+.arrow.up::after {
+  transform: rotate(180deg); /* Rotate the arrow for ascending order */
+}
+
+.arrow.down::after {
+  transform: rotate(0deg); /* Arrow is already in downward position by default */
+}
+
+
+
+  
 </style>
 </head>
 <body>
@@ -88,7 +102,7 @@
       <button type="button" onclick="clearInputs()">Reset</button>
     </div>
     <br>
-
+   <!-- search field  -->
     <div class="input-group mb-3">
       <div id="searchContainer" class="input-group-prepend">
         <span class="input-group-text"><i class="fa fa-search"></i></span>
@@ -97,26 +111,37 @@
     </div>
     <div class="warning" id="warningMessage"></div>
   </form>
-  
+  <!-- student table -->
+  <!-- <table id="studentTable" border="1">
+    <tr>
+      <th style="cursor: pointer;" onclick="sortTable(0)">SI No  <i class="arrow up"></i></th>
+      <th style="cursor: pointer;" onclick="sortTable(1)">Name <i class="arrow up"></i></th>
+      <th style="cursor: pointer;" onclick="sortTable(2)">Register Number <i class="arrow up"></i></th>
+      <th style="cursor: pointer;" onclick="sortTable(3)">Grade <i class="arrow up"></i></th>
+      <th>Action</th>
+    </tr>
+  </table> -->
+
   <table id="studentTable" border="1">
     <tr>
-      <th style="cursor: pointer;" onclick="sortTable(0)">SI No</th>
-      <th style="cursor: pointer;" onclick="sortTable(1)">Name</th>
-      <th style="cursor: pointer;" onclick="sortTable(2)">Register Number</th>
-      <th style="cursor: pointer;" onclick="sortTable(3)">Grade</th>
+      <th style="cursor: pointer;" onclick="toggleSort(0)">SI No <i class="arrow"></i></th>
+      <th style="cursor: pointer;" onclick="toggleSort(1)">Name <i class="arrow"></i></th>
+      <th style="cursor: pointer;" onclick="toggleSort(2)">Register Number <i class="arrow"></i></th>
+      <th style="cursor: pointer;" onclick="toggleSort(3)">Grade <i class="arrow"></i></th>
       <th>Action</th>
     </tr>
   </table>
-
+  
+  
+  
   <div id="noResultMessage" style="display: none; color: red; text-align: center; font-size: large;">No result found</div>
 
   <script>
 
-    
     const studentTable = document.getElementById('studentTable');
     const studentForm = document.getElementById('studentForm');
     const searchContainer = document.getElementById('searchContainer');
-
+    // Name validation 
     function validateName(inputElement) {
     const name = inputElement.value;
     const nameWarning = document.getElementById('nameWarning');
@@ -132,7 +157,7 @@
       inputElement.classList.remove('is-invalid');
     }
   }
-
+  //  regNumber validation
   function validateRegNumber(inputElement) {
     const regNumber = inputElement.value;
     const regNumberWarning = document.getElementById('regNumberWarning');
@@ -147,7 +172,7 @@
   }
 
 
-
+  // grade validation
   function validateGrade(inputElement) {
     const grade = inputElement.value;
     const gradeWarning = document.getElementById('gradeWarning');
@@ -164,29 +189,25 @@
     }
   }
 
-
+//create a table
   function createTable() {
   const table = document.createElement('table');
   table.id = 'studentTable';
   table.border = '1';
-
-
   const headerRow = document.createElement('tr');
   const headers = ['SI No', 'Name', 'Register Number', 'Grade', 'Actions'];
-
   for (const headerText of headers) {
     const headerCell = document.createElement('th');
     headerCell.textContent = headerText;
     headerRow.appendChild(headerCell);
   }
-
   table.appendChild(headerRow);
-
   document.body.appendChild(table);
 }
-
-
+ 
+  
   function addStudent() {
+    
   const name = document.getElementById('name').value;
   const regNumber = document.getElementById('regNumber').value;
   const grade = document.getElementById('grade').value;
@@ -237,14 +258,11 @@
   const cell4 = newRow.insertCell(3);
   const cell5 = newRow.insertCell(4); // New action cell
  
-
   cell1.innerHTML = studentTable.rows.length - 1;
   cell2.innerHTML = name;
   cell3.innerHTML = regNumber;
   cell4.innerHTML = grade;
   searchContainer.style.display = 'block';
-
-
 
   const editButton = document.createElement('button');
   editButton.textContent = 'Edit';
@@ -263,9 +281,6 @@
  
   cell5.appendChild(editButton);
   cell5.appendChild(deleteButton);
-      
-  
-
   sortTable();
   clearInputs();
   showTable();
@@ -465,19 +480,48 @@ function updateSerialNumbers() {
         });
         }
 
+ const arrowIcons = document.querySelectorAll('.arrow'); // Get all arrow icons
+const sortInfo = {
+  column: 'Name',
+  ascending: true,
+};
+
+function toggleSort(column) {
+  if (sortInfo.column === column) {
+    sortInfo.ascending = !sortInfo.ascending; // Toggle sorting order
+  } else {
+    sortInfo.column = column; // Set the current column
+    sortInfo.ascending = true; // Reset sorting order to ascending
+  }
+
+  sortTable(column); // Call the sorting function
+
+  // Update arrow icons based on sorting order
+  arrowIcons.forEach((arrow, index) => {
+    if (index === column) {
+      arrow.classList.toggle('up', sortInfo.ascending); // Add 'up' class if ascending
+      arrow.classList.toggle('down', !sortInfo.ascending); // Add 'down' class if descending
+    } else {
+      arrow.classList.remove('up', 'down'); // Remove both classes from other columns
+    }
+  });
+}
+
 function sortTable(column) {
   const rows = Array.from(studentTable.rows).slice(1); // Exclude header row
-
   rows.sort((a, b) => {
     const aValue = a.cells[column].textContent.toLowerCase();
     const bValue = b.cells[column].textContent.toLowerCase();
-    return aValue.localeCompare(bValue);
+    const comparison = aValue.localeCompare(bValue);
+
+    // Adjust the comparison based on sorting order
+    return sortInfo.ascending ? comparison : -comparison;
   });
 
+  // Clear the table and append sorted rows
   while (studentTable.rows.length > 1) {
     studentTable.deleteRow(1);
   }
-
   for (const row of rows) {
     studentTable.appendChild(row);
   }
