@@ -112,16 +112,6 @@
     <div class="warning" id="warningMessage"></div>
   </form>
   <!-- student table -->
-  <!-- <table id="studentTable" border="1">
-    <tr>
-      <th style="cursor: pointer;" onclick="sortTable(0)">SI No  <i class="arrow up"></i></th>
-      <th style="cursor: pointer;" onclick="sortTable(1)">Name <i class="arrow up"></i></th>
-      <th style="cursor: pointer;" onclick="sortTable(2)">Register Number <i class="arrow up"></i></th>
-      <th style="cursor: pointer;" onclick="sortTable(3)">Grade <i class="arrow up"></i></th>
-      <th>Action</th>
-    </tr>
-  </table> -->
-
   <table id="studentTable" border="1">
     <tr>
       <th style="cursor: pointer;" onclick="toggleSort(0)">SI No <i class="arrow"></i></th>
@@ -131,13 +121,9 @@
       <th>Action</th>
     </tr>
   </table>
-  
-  
-  
   <div id="noResultMessage" style="display: none; color: red; text-align: center; font-size: large;">No result found</div>
 
   <script>
-
     const studentTable = document.getElementById('studentTable');
     const studentForm = document.getElementById('studentForm');
     const searchContainer = document.getElementById('searchContainer');
@@ -170,8 +156,6 @@
       inputElement.classList.remove('is-invalid');
     }
   }
-
-
   // grade validation
   function validateGrade(inputElement) {
     const grade = inputElement.value;
@@ -180,9 +164,7 @@
     if (!/^\d+$/.test(grade) || parseInt(grade) < 0 || parseInt(grade) > 100) {
       gradeWarning.textContent = 'Grade should be a number between 0 and 100.';
       inputElement.classList.add('is-invalid');
-
     }
-
     else {
       gradeWarning.textContent = '';
       inputElement.classList.remove('is-invalid');
@@ -205,9 +187,7 @@
   document.body.appendChild(table);
 }
  
-  
   function addStudent() {
-    
   const name = document.getElementById('name').value;
   const regNumber = document.getElementById('regNumber').value;
   const grade = document.getElementById('grade').value;
@@ -244,11 +224,9 @@
   regNumberWarning.textContent = '';
   gradeWarning.textContent = '';
 
-
    // Recreate the table with headers
    if (!document.getElementById('studentTable')) {
     createTable();
-
    }
   
   const newRow = studentTable.insertRow(-1);
@@ -284,7 +262,6 @@
   sortTable();
   clearInputs();
   showTable();
- 
 }
 
 
@@ -310,7 +287,6 @@ function createEditAndDeleteButtons(name, regNumber, grade) {
   // Append buttons to the container
   buttonContainer.appendChild(editButton);
   buttonContainer.appendChild(deleteButton);
-
   return buttonContainer;
 }
 
@@ -347,7 +323,6 @@ function editStudent(name, regNumber, grade) {
   updateButton.classList.add('btn', 'btn-success', 'btn-sm', 'mr-1');
 
   let valuesUpdated = false;
-
 
   nameInput.addEventListener('input', function () {
     valuesUpdated = true;
@@ -420,7 +395,6 @@ function restoreActionCell(row, name, regNumber, grade) {
   row.cells[4].appendChild(buttonContainer);
 }
 
-
 function createInputField(value) {
   const input = document.createElement('input');
   input.type = 'text';
@@ -441,8 +415,7 @@ function findRow(name, regNumber, grade) {
   }
   return null;
 }
-
-
+  //To delete data
   function deleteStudent(name, regNumber, grade) {
   const confirmation = confirm('Are you sure you want to delete this student?');
   if (confirmation) {
@@ -462,14 +435,7 @@ function findRow(name, regNumber, grade) {
     updateSerialNumbers();
   }
 }
-
-//   function sortTable() {
-//   const rows = Array.from(studentTable.rows).slice(1); // Exclude header row
-//   rows.sort((a, b) => a.cells[1].textContent.localeCompare(b.cells[1].textContent));
-//   for (const row of rows) {
-//   studentTable.appendChild(row);
-//   }
-// }
+//To update serial number after deletion
 function updateSerialNumbers() {
         const rows = dataTable.querySelectorAll("tbody tr");
         rows.forEach((row, index) => {
@@ -477,10 +443,10 @@ function updateSerialNumbers() {
             if (serialNumberCell) {
             serialNumberCell.textContent = index + 1;
             }
-        });
-        }
+      });
+  }
 
- const arrowIcons = document.querySelectorAll('.arrow'); // Get all arrow icons
+const arrowIcons = document.querySelectorAll('.arrow'); // Get all arrow icons
 const sortInfo = {
   column: 'Name',
   ascending: true,
@@ -526,13 +492,12 @@ function sortTable(column) {
     studentTable.appendChild(row);
   }
 }
-
-
+//To clear entire table
 function clearEntireTable() {
   clearTable();
   clearInputs();
 }
-
+//To clear table data
 function clearTable() {
   while (studentTable.rows.length > 1) {
     studentTable.deleteRow(1);
@@ -552,7 +517,7 @@ function clearInputs() {
     document.getElementById('regNumber').classList.remove('is-invalid');
     document.getElementById('grade').classList.remove('is-invalid');
   }
-
+   //To search data in the table
   function searchTable(inputElement) {
   const searchKeyword = inputElement.value.toLowerCase();
   const rows = studentTable.getElementsByTagName('tr');
@@ -590,16 +555,13 @@ function clearInputs() {
 function showTable() {
   document.getElementById('studentTable').style.display = 'table';
 }
-
-
 </script>
+
   <div class="button-container">
     <button type="button" id="btn" onclick="studentTable.remove(),btn.remove(),btn1.remove()"> Clear Table</button> 
     <button type="button" id="btn1" onclick="clearTable()">Clear</button>
-    
    </div>
 </div>
-
 </body>
 </html>
 
