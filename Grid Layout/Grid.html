@@ -3,169 +3,223 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f1f1f1;
+  padding: 20px 0px 0px 0px;
+  font-family: Arial;
+}
+
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+.row {
+  margin: 8px -16px;
+}
+.container {
+  background-color:lightgrey;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+.contaiiner {
+  background-color:white;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+.row,
+.row > .column {
+  padding: 8px;
+}
 
 
+.column {
+  float: left;
+  width: 33.33%;
+}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.content {
+  background-color: white;
+  padding: 10px;
+  position: relative;
+  /* /text-align: center;/ */
+  
+  
+  
+}
+.cont {
+  background-color: white;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+  
+  
+  
+}
+
+.min{
+  background-color: white;
+  
+  position: relative;
+  float:right;
+  text-align:right;
+  
+}
+.textcenter{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+
+@media screen and (max-width: 900px) {
+  .column {
+    width: 50%;
+    
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
 </style>
 </head>
 <body>
+  <div class="contaiiner">
+    <div class="row">
+      <div class="cont">
+    <h3> Album Example</h3>
+    <p>Something short and leading about the collection below-its<br> contents,the creator,etc.Make it short and sweet,but not too<br> short so folks don't simply skip over it entirely </p>
+    <button>Main call to action</button>&nbsp;&nbsp;<button>Secondary action</button>
+    </div>
+    </div>
+  </div>
 <div class="container">
-  <div class="row">
-    <div class="con">
-    <h2>Album Example</h2>
-    <p>Something short and leading about the coolection--its<br> contents,the creator, etc.Make it short and sweet,but not too<br> short so folks don't simply skip over it entirly<br></p>
-    <button class="btn1">Main call to action</button>&nbsp<button class="btn2">Secondary action</button>
-</div>
-  </div>
-  </div>
-<div class="container1">
-   <div class="main">
-
-   <div class="row">
-    <div class="column">
-      <div class="container">
-     <div class="content">
-      <img src="D:\Internship\Grid Layout\grey.jpg" alt="Sky" style="width:100%">
-      <div class="centered">Thumbnail</div>
-      <p>The sky is an unobstructed view upward from the surface of the Earth. </p>
-      <section>
-      <p class="min">9 mins</p>
-      <button class="view">view</button><button>edit</button></section>
-    </div>
-  </div>
-  </div>
-  <div class="column">
-    <div class="container">
-    <div class="content">
-      
-    <img src="D:\Internship\Grid Layout\grey.jpg" alt="Nature" style="width:100%">
-    <div class="centered">Thumbnail</div>
-      <p>Green is the color between cyan and yellow on the visible spectrum. </p>
-      <section>
-      <p class="min">9 mins</p>
-      <button>view</button><button>edit</button></section>
-    </div>
-  </div>
-  </div>
-  <div class="column">
-    <div class="container">
-    <div class="content">
-    <img src="D:\Internship\Grid Layout\grey.jpg" alt="Rainbow" style="width:100%">
-    <div class="centered">Thumbnail</div>
-      <p>A rainbow is a multicolored arc made by light striking water droplets. </p>
-      <section>
-      <p class="min">9 mins</p>
-      <button>view</button><button>edit</button>
-      </section>
-    </div>
-  </div>
-  </div>
-  
-<!-- END GRID -->
-</div>
-
-<!-- END MAIN -->
-</div>
 <div class="main">
 
- 
-    
-    
-    <!-- Grid -->
-    <div class="row">
-      <div class="column">
-        <div class="container">
-        <div class="content">
-          <img src="D:\Internship\Grid Layout\grey.jpg" alt="Sky" style="width:100%">
-          <div class="centered">Thumbnail</div>
-          <p>The sky is an unobstructed view upward from the surface of the Earth.</p>
-          <section>
-          <p class="min">9 mins</p>
-          <button>view</button><button>edit</button></section>
-        </div>
-      </div>
-      </div>
-      <div class="column">
-        <div class="container">
-        <div class="content">
-        <img src="D:\Internship\Grid Layout\grey.jpg" alt="Nature" style="width:100%">
-        <div class="centered">Thumbnail</div>
-          <p>Green is the color between cyan and yellow on the visible spectrum. </p>
-          <section>
-          <p class="min">9 mins</p>
-          <button>view</button><button>edit</button></section>
-        </div>
-      </div>
-      </div>
-      <div class="column">
-        <div class="container">
-        <div class="content">
-        <img src="D:\Internship\Grid Layout\grey.jpg" alt="Rainbow" style="width:100%">
-        <div class="centered">Thumbnail</div>
-          <p>A rainbow is a multicolored arc made by light striking water droplets. </p>
-          <section>
-          <p class="min">9 mins</p>
-          <button>view</button><button>edit</button></section>
-        </div>
-      </div>
-      </div>
+<div class="row">
+  <div class="column">
+    <div class="content">
+      <img src="D:\Internship\Grid Layout\grey.jpg"  style="width:100%">
+      <div class="textcenter">Thumbnail</div>
+     
+      <p>This is a wilder card with supporting  text below asa natural lead-in to additional content.THis content is a little bit longer</p>
+      <div class="min">9 mins</div>
+      <button>view</button><button>edit</button>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content">
+    <img src="D:\Internship\Grid Layout\grey.jpg"  style="width:100%">
+    <div class="textcenter">Thumbnail</div>
       
-    <!-- END GRID -->
+      <p>This is a wilder card with supporting  text below asa natural lead-in to additional content.THis content is a little bit longer </p>
+      <div class="min">9 mins</div>
+      <button>view</button><button>edit</button>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content">
+    <img src="D:\Internship\Grid Layout\grey.jpg" style="width:100%">
+    <div class="textcenter">Thumbnail</div>
+      
+      <p>This is a wilder card with supporting  text below asa natural lead-in to additional content.THis content is a little bit longer</p>
+      <div class="min">9 mins</div>
+      <button>view</button><button>edit</button>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content">
+    <img src="D:\Internship\Grid Layout\grey.jpg" style="width:100%">
+    <div class="textcenter">Thumbnail</div>
+      
+      <p>This is a wilder card with supporting  text below asa natural lead-in to additional content.THis content is a little bit longer</p>
+      <div class="min">9 mins</div>
+      <button>view</button><button>edit</button>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content">
+      <img src="D:\Internship\Grid Layout\grey.jpg"style="width:100%">
+      <div class="textcenter">Thumbnail</div>
+     
+      <p>This is a wilder card with supporting  text below asa natural lead-in to additional content.THis content is a little bit longer</p>
+      <div class="min">9 mins</div>
+      <button>view</button><button>edit</button>
     </div>
     
-    <!-- END MAIN -->
-    </div>
-
-    <div class="main">
-
-        
-        <div class="row">
-          <div class="column">
-            <div class="container">
-            <div class="content">
-              <img src="D:\Internship\Grid Layout\grey.jpg" alt="Sky" style="width:100%">
-              <div class="centered">Thumbnail</div>
-              <p>The sky is an unobstructed view upward from the surface of the Earth. </p>
-              <section>
-              <p class="min">9 mins</p>
-              <button>view</button><button>edit</button></section>
-            </div>
-          </div>
-          </div>
-          <div class="column">
-            <div class="container">
-            <div class="content">
-              
-            <img src="D:\Internship\Grid Layout\grey.jpg"alt="Nature" style="width:100%">
-            <div class="centered">Thumbnail</div>
-              <p>Green is the color between cyan and yellow on the visible spectrum. </p>
-              <section>
-              <p class="min">9 mins</p>
-              <button>view</button><button>edit</button></section>
-            </div>
-          </div>
-          </div>
-          <div class="column">
-            <div class="container">
-            <div class="content">
-            <img src="D:\Internship\Grid Layout\grey.jpg" alt="Rainbow" style="width:100%">
-            <div class="centered">Thumbnail</div>
-              <p>A rainbow is a multicolored arc made by light striking water droplets. </p>
-              <section>
-              <p class="min">9 mins</p>
-              <button>view</button><button>edit</button></section>
-            </div>
-          </div>
-          </div>
-          
-        <!-- END GRID -->
-        </div>
-        
-        <!-- END MAIN -->
-        </div>
-
-      </div>
-
+  </div>
+  <div class="column">
+    <div class="content">
+    <img src="D:\Internship\Grid Layout\grey.jpg" style="width:100%">
+    <div class="textcenter">Thumbnail</div>
       
-</body>
+      <p>This is a wilder card with supporting  text below asa natural lead-in to additional content.THis content is a little bit longer </p>
+      <div class="min">9 mins</div>
+      <button>view</button><button>edit</button>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content">
+    <img src="D:\Internship\Grid Layout\grey.jpg" style="width:100%">
+    <div class="textcenter">Thumbnail</div>
+      
+      <p>This is a wilder card with supporting  text below asa natural lead-in to additional content.THis content is a little bit longer</p>
+      <div class="min">9 mins</div>
+      <button>view</button><button>edit</button>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content">
+      <img src="D:\Internship\Grid Layout\grey.jpg" style="width:100%">
+      <div class="textcenter">Thumbnail</div>
+     
+      <p>This is a wilder card with supporting  text below asa natural lead-in to additional content.THis content is a little bit longer</p>
+      <div class="min">9 mins</div>
+      <button>view</button><button>edit</button>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content">
+    <img src="D:\Internship\Grid Layout\grey.jpg" style="width:100%">
+    <div class="textcenter">Thumbnail</div>
+      
+      <p>This is a wilder card with supporting  text below asa natural lead-in to additional content.THis content is a little bit longer </p>
+      <div class="min">9 mins</div>
+      <button>view</button><button>edit</button>
+    </div>
+  </div>
+
+</div>
+</div>
+
+</div>
+
 </body>
 </html>
